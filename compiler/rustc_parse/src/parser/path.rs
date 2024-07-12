@@ -726,8 +726,14 @@ impl<'a> Parser<'a> {
 
                     let span = lo.to(self.prev_token.span);
 
-                    let constraint =
-                        AssocItemConstraint { id: ast::DUMMY_NODE_ID, ident, gen_args, kind, span };
+                    let constraint = AssocConstraint {
+                        id: ast::DUMMY_NODE_ID,
+                        ident,
+                        gen_args,
+                        kind,
+                        span,
+                        impl_trait_id: ast::DUMMY_NODE_ID,
+                    };
                     Ok(Some(AngleBracketedArg::Constraint(constraint)))
                 } else {
                     // we only want to suggest `:` and `=` in contexts where the previous token

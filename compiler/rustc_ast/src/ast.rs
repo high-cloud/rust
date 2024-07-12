@@ -2063,6 +2063,8 @@ pub struct AssocItemConstraint {
     pub gen_args: Option<GenericArgs>,
     pub kind: AssocItemConstraintKind,
     pub span: Span,
+
+    pub impl_trait_id: NodeId,
 }
 
 #[derive(Clone, Encodable, Decodable, Debug)]
