@@ -1226,6 +1226,8 @@ fn check_item_fn(
     span: Span,
     decl: &hir::FnDecl<'_>,
 ) -> Result<(), ErrorGuaranteed> {
+    println!("{}", ident.to_string());
+    println!("{:?}", decl);
     enter_wf_checking_ctxt(tcx, span, def_id, |wfcx| {
         let sig = tcx.fn_sig(def_id).instantiate_identity();
         check_fn_or_method(wfcx, ident.span, sig, decl, def_id);
